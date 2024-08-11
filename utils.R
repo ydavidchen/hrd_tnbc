@@ -1,7 +1,12 @@
 # Helper Functions
 # Data Cleaning & Exploratory Analysis Procedures maybe masked
 
-source("../PATHS.R")
+DIR_COHORTS <- "************ MASKED ************"
+DIR_RPMM <- "************ MASKED ************"
+COHORT1_PATHS <- "************ MASKED VECTOR ************"
+COHORT2_PATHS <- "************ MASKED VECTOR ************"
+DIR_SNPS <- "************ MASKED ************"
+DIR_SYNAPSE <- "************ MASKED ************"
 
 #------------------------------------- Data Loading Procedures -------------------------------------
 load_new_rpmm <- function(cohort, dir=DIR_RPMM, suffix="_RPMM.csv") {

@@ -186,15 +186,15 @@ selectMostVariableCpGs <- function(data, k) {
   return(mat)
 }
 
-createCpGTrackingBars <- function(stratifyPromoter=FALSE, noAsBlanks=FALSE) {
-  #'@description Creates CpG annotation data.frame for tracking bars in a pheatmap
-  annot.850kb3 <- loadEPICannotationFile()
+createCpGTrackingBars <- function(annot850k=NULL, stratifyPromoter=FALSE, noAsBlanks=FALSE) {
+  #'@description Creates CpG annotation data.frame for tracking bars for pheatmap
+  if(is.null(annot850k)) annot850k <- loadEPICannotationFile()
   row_annot <- data.frame(
-    row.names = annot.850kb3$Name, 
-    Context = gsub("[N,S]_", "", annot.850kb3$Relation_to_Island),
-    TSS200 = ifelse(grepl("TSS200", annot.850kb3$UCSC_RefGene_Group), "Yes", "No"),
-    TSS1500 = ifelse(grepl("TSS1500", annot.850kb3$UCSC_RefGene_Group), "Yes", "No"),
-    Enhancer = ifelse(annot.850kb3$isEnhancer, "Yes", "No")
+    row.names = annot850k$Name, 
+    Context = gsub("[N,S]_", "", annot850k$Relation_to_Island),
+    TSS200 = ifelse(grepl("TSS200", annot850k$UCSC_RefGene_Group), "Yes", "No"),
+    TSS1500 = ifelse(grepl("TSS1500", annot850k$UCSC_RefGene_Group), "Yes", "No"),
+    Enhancer = ifelse(annot850k$isEnhancer, "Yes", "No")
   )
   row_annot$Promoter <- ifelse(row_annot$TSS200=="Yes" | row_annot$TSS1500=="Yes", "Yes", "No")
   if(! stratifyPromoter) row_annot$TSS200 <- row_annot$TSS1500 <- NULL

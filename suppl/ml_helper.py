@@ -1,4 +1,8 @@
-__title__ = "Python Machine Learning Helper Functions for HRD"
+# Python Machine Learning Helpers for Continuous HRD
+
+PATH_MVALS = "********* MASKED *********"
+PATH_CLIN = "********* MASKED *********"
+DIR_OUT = "**************** MASKED ****************"
 
 import numpy as np
 import pandas as pd

@@ -18,8 +18,6 @@ from ml_helper import *
 
 ## Constants:
 SEED = 200117
-PATH_MVALS = "********* MASKED *********"
-PATH_CLIN = "********* MASKED *********"
 CV_SCORE = "neg_mean_squared_error"
 
 ## Grids to search:

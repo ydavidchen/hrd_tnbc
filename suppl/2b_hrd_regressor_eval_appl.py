@@ -15,9 +15,6 @@ from sklearn.svm import SVR
 
 from ml_helper import *
 
-PATH_MVALS = "********* MASKED *********"
-PATH_CLIN = "********* MASKED *********"
-DIR_OUT = "**************** MASKED ****************"
 SKEY = ['Mean', 'Median', 'SD']
 
 ## Initialize selected model & baseline:

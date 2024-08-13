@@ -3,10 +3,15 @@
 
 DIR_COHORTS <- "************ MASKED ************"
 DIR_RPMM <- "************ MASKED ************"
+DIR_HYPERM <- "************ MASKED ************"
 COHORT1_PATHS <- "************ MASKED VECTOR ************"
 COHORT2_PATHS <- "************ MASKED VECTOR ************"
 DIR_SNPS <- "************ MASKED ************"
 DIR_SYNAPSE <- "************ MASKED ************"
+DIR_SNPS <-  "************ MASKED ************"
+DIR_SYNAPSE <- "************ MASKED ************"
+PATH_UNIV <- "************ MASKED ************"
+PATH_DMPS <- "************ MASKED LIST ************"
 
 #------------------------------------- Data Loading Procedures -------------------------------------
 load_new_rpmm <- function(cohort, dir=DIR_RPMM, suffix="_RPMM.csv") {

@@ -39,7 +39,6 @@ colnames(TCGA_SURV)[1] <- KEY
 
 SZTUPINSKI_BRCA <- read.csv(PATH_BRCA, stringsAsFactors=FALSE)
 colnames(SZTUPINSKI_BRCA)[1] <- KEY
-SZTUPINSKI_BRCA$HRD <- SZTUPINSKI_BRCA$HRDsum_WXS > 42
 SZTUPINSKI_BRCA$isBRCAmut <- apply(SZTUPINSKI_BRCA[,c("BRCA1germline","BRCA2germline","BRCA1somatic","BRCA2somatic")], 1, FUN=function(vec) any(vec==1, na.rm=TRUE));
 SZTUPINSKI_BRCA$isBRCAmut <- ifelse(SZTUPINSKI_BRCA$isBRCAmut, "BRCA1/2 mutated", "BRCA1/2 intact");
 

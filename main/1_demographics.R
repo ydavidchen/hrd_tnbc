@@ -1,4 +1,4 @@
-## Table One Summary: Overall & Within BRCA1-altered
+## TableOne Summary: Overall & Within BRCA1-altered
 
 rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -21,11 +21,10 @@ print(CreateTableOne(
 
 
 ## Within BRCA1-altered (Reviewer Request):
-cohort1_covars <- subset(cohort1_covars, HRD=="Yes")
-cohort1_covars <- subset(cohort1_covars, BRCA.Status=="BRCA1" | BRCA1_Hypermeth=="Yes")
+cohort1_covars <- subset(cohort1_covars, HRD=="Yes" & (BRCA.Status=="BRCA1" | BRCA1_Hypermeth=="Yes"))
 
 print(CreateTableOne(
-  c("AgeAtDx", "binaryStage", "MLPA.mean", "RPMM"), 
+  c("AgeAtDx", "binaryStage", "RPMM"), 
   strata = "BRCA1_Hypermeth",
   data = cohort1_covars, 
   includeNA = TRUE,
@@ -44,10 +43,9 @@ print(CreateTableOne(
 
 
 ## Within BRCA1-altered (Reviewer Request):
-cohort2_covars <- subset(cohort2_covars, HRD=="Yes")
-cohort2_covars <- subset(cohort2_covars, BRCA.Status=="BRCA1" | isBRCA1Meth)
+cohort2_covars <- subset(cohort2_covars, HRD=="Yes" & (BRCA.Status=="BRCA1" | isBRCA1Meth))
 print(CreateTableOne(
-  c("AgeAtDx", "StageBinary", "MLPA.mean", "RPMM"), 
+  c("AgeAtDx", "StageBinary", "RPMM"), 
   strata = "isBRCA1Meth", 
   data = cohort2_covars, 
   includeNA = TRUE,

@@ -4,6 +4,7 @@
 DIR_COHORTS <- "************ MASKED ************"
 DIR_RPMM <- "************ MASKED ************"
 DIR_HYPERM <- "************ MASKED ************"
+DIR_ENCODE <- "************ MASKED ************"
 COHORT1_PATHS <- "************ MASKED VECTOR ************"
 COHORT2_PATHS <- "************ MASKED VECTOR ************"
 DIR_SNPS <- "************ MASKED ************"

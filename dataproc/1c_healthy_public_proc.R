@@ -1,4 +1,5 @@
 # Beta-value extraction for Otra et al. 2018 Healthy Breast tissue
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 library(ENmix)
@@ -124,9 +125,6 @@ main <- function() {
   genomRatSet <- ChristensenLabMinfiAdoption(rgSet, DET_P, SAMP_FRACTION)
   
   #------------------------------------Step 5. Plot final distribution & save------------------------------------
-  OltraHealthyBetas <- extractMethMatrix_final(genomRatSet, targets=targets)
-  save(list=c("OltraHealthyBetas","targets"), file="Oltra2018HealthySubjects.RData", compress=TRUE)
-  
   ## MDS plots:
   png("minfi_mdsPlotPanels_post_normalization_1K_sites.png", height=8.27, width=11.69, units="in", res=DPI)
   mdsPlot(OltraHealthyBetas)
@@ -141,6 +139,9 @@ main <- function() {
   par(mar=c(5,4,4,2))
   densityPlot(OltraHealthyBetas, main="Preproocessed Methylation Densities")
   dev.off()
+  
+  OltraHealthyBetas <- extractMethMatrix_final(genomRatSet, targets=targets)
+  save(list=c("OltraHealthyBetas","targets"), file=DIR_COHORTS[["Oltra"]], compress=TRUE)
   
   print("************************ Process complete! ************************")
 }

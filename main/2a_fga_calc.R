@@ -1,4 +1,5 @@
 # Estimating Fraction of Genome Altered (FGA) from CopyNumber450KCancer Output
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 PATTERN <- "sample_|.seg"

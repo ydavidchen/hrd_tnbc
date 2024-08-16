@@ -1,4 +1,5 @@
 # Pre-processing TNBC Cohort 1 Methylation EPIC 
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -8,7 +9,7 @@ library(matrixStats)
 source("../utils.R") #procedures + imports constants/paths/gobalvar
 
 #------------------------ Load IDATs ------------------------
-setwd(IDAT_DIR)
+setwd(DIR_IDAT[["Cohort1"]])
 targets <- read.metharray.sheet(getwd());
 masterCovar <- read.csv(COVAR_DIR, stringsAsFactors=F)
 colnames(masterCovar)[colnames(masterCovar) == "Complete.Barcode"] <- "Sample_Name"

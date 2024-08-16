@@ -1,4 +1,5 @@
-# Cohort 2 methylation data processing
+# TNBC Cohort 2 methylation data processing
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -12,6 +13,7 @@ source("../utils.R") #procedures + imports constants/paths/gobalvar
 SAMP_FRACTION <- 0.10 #custom
 DET_P <- 0.000001 #ENmix default
 DPI <- 200
+QC_PATH <- "********** MASKED **********"
 
 extractMethMatrix_final <- function(genomRatSet, targets) {
   methMat <- minfi::getBeta(genomRatSet)

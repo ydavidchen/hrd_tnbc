@@ -1,4 +1,5 @@
-# Reusable graphic themes & objects
+# Reusable Objects & Constants for Data Visualization
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 library(ggplot2)
 

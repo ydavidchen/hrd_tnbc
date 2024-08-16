@@ -1,4 +1,5 @@
 # Heatmaps for Global Methylation
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))

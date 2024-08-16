@@ -1,10 +1,14 @@
 # Helper Functions
-# Data Cleaning & Exploratory Analysis Procedures maybe masked
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
+# Notes:
+# - Data Cleaning & Exploratory Analysis Procedures maybe masked
 
+## Constants:
 DIR_COHORTS <- "************ MASKED ************"
 DIR_RPMM <- "************ MASKED ************"
 DIR_HYPERM <- "************ MASKED ************"
 DIR_ENCODE <- "************ MASKED ************"
+DIR_IDAT <- "************ MASKED LIST ************"
 COHORT1_PATHS <- "************ MASKED VECTOR ************"
 COHORT2_PATHS <- "************ MASKED VECTOR ************"
 DIR_SNPS <- "************ MASKED ************"
@@ -89,6 +93,16 @@ loadEPICannotationFile <- function() {
   annot.850kb3[annot.850kb3==""] <- NA
   return(annot.850kb3)
 }
+
+get_biomart <- function() {
+  print("Downloading ENSEMBL annotation...Internet REQUIRED!")
+  require(biomaRt)
+  ENSEMBL <- useMart("ensembl", dataset="hsapiens_gene_ensembl") #ref database
+  ENSEMBL_ATTRIBUTES <- listAttributes(ENSEMBL, page="feature_page") #for ref/look-up
+  assign("ENSEMBL", ENSEMBL, envir=.GlobalEnv)
+  assign("ENSEMBL_ATTRIBUTES", ENSEMBL, envir=.GlobalEnv)
+}
+
 
 #------------------------------------- Exploration & Statistical Methods -------------------------------------
 custom_imputation <- function(mat, ...) {

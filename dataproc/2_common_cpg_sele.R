@@ -1,4 +1,5 @@
 # Empirical Search for Common Universe of 25081 CpGs w/ Visualizations
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -42,5 +43,4 @@ seleUniv <- intersect(
   rownames(selectMostVariableCpGs(cohort2_betas, K))
 )
 
-write.table(seleUniv, file=OUT_LIST_PATH, row.names=FALSE, quote=FALSE, col.names=FALSE)
-
+# write.table(seleUniv, file=PATH_UNIV, row.names=FALSE, quote=FALSE, col.names=FALSE)

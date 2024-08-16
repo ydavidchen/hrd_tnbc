@@ -1,4 +1,5 @@
 ## TableOne Summary: Overall & Within BRCA1-altered
+# Copyright (C) 2019-2024 Y. David Chen & Christensen Lab. All rights reserved.
 
 rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -13,7 +14,7 @@ rm(cohort1_betas, cohort2_betas)
 ## Overall:
 print(CreateTableOne(
   c("AgeAtDx", "binaryStage", "BRCA.Status", "BRCA1_Hypermeth"), 
-  strata = "MLPA",
+  strata = "HRD",
   data = cohort1_covars,
   includeNA = TRUE,
   test = FALSE
@@ -35,7 +36,7 @@ print(CreateTableOne(
 ## Overall:
 print(CreateTableOne(
   c("AgeAtDx", "StageBinary", "BRCA.Status", "isBRCA1Meth"), 
-  strata = "MLPA", 
+  strata = "HRD", 
   data = cohort2_covars, 
   includeNA = TRUE,
   test = FALSE

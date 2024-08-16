@@ -4,7 +4,7 @@ rm(list=ls())
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 source("../utils.R")
 
-SELE_UNIV <- SELE_UNIV <- read.table(PATH_UNIV)[,1] #25081 CpGs
+SELE_UNIV <- read.table(PATH_UNIV)[,1] #25081 CpGs
 
 getRPMMSampOrder <- function(rpmmClusters, Y_inv, sampleIdName) {
   #'@description Retrieves sample orders fo heat map visualization

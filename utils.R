@@ -13,6 +13,7 @@ DIR_SNPS <-  "************ MASKED ************"
 DIR_SYNAPSE <- "************ MASKED ************"
 PATH_UNIV <- "************ MASKED ************"
 PATH_DMPS <- "************ MASKED LIST ************"
+COLS_EWAS <- c("Name","logFC","AveExpr","P.Value","adj.P.Val")
 
 #------------------------------------- Data Loading Procedures -------------------------------------
 load_new_rpmm <- function(cohort, dir=DIR_RPMM, suffix="_RPMM.csv") {
@@ -206,5 +207,12 @@ createCpGTrackingBars <- function(annot850k=NULL, stratifyPromoter=FALSE, noAsBl
   if(! stratifyPromoter) row_annot$TSS200 <- row_annot$TSS1500 <- NULL
   if(noAsBlanks) row_annot[row_annot=="No"] <- NA
   return(row_annot)
+}
+
+ewas_df_cleanup <- function(df, es=1.0, fdr=0.05, simplify=TRUE) {
+  #'@description Helper to clean up LIMMA-EWAS results table
+  df$SignifByHRD[df$logFC > es & df$adj.P.Val < fdr] <- "UP"
+  df$SignifByHRD[df$logFC < -es & df$adj.P.Val < fdr] <- "DOWN"
+  return(df[order(df$SignifByHRD, decreasing=TRUE), ])
 }
 
